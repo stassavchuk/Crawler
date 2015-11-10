@@ -65,6 +65,7 @@ def crowl_tutor_page(url):
     print subjects[0]
     print url_of_profile
     print profile_img
+    
 def crowl_page_with_tutors(url):
 
     # read the page
@@ -81,6 +82,7 @@ def crowl_page_with_tutors(url):
     # clowl each ural
     for x in tutors_url:
         crowl_tutor_page(x)
+        
 def take_next_page(url):
     try:
         htmltext = urllib.urlopen(url).read()
@@ -89,6 +91,7 @@ def take_next_page(url):
         return next_page
     except IndexError:
         return None
+        
 def crowl_the_city(url):
     while True:
         crowl_page_with_tutors(url)
@@ -96,6 +99,7 @@ def crowl_the_city(url):
             url = take_next_page(url)
         else:
             break
+        
 def crowl_site_map(url):
 
     htmltext = urllib.urlopen(url).read() # read the page
@@ -113,6 +117,7 @@ def crowl_site_map(url):
     cities = c
 
     return cities
+    
 def start_crowl():
 
     site_map_url = "http://www.universitytutor.com/sitemap"
